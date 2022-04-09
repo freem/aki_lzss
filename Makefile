@@ -1,10 +1,11 @@
 INFILE := aki_lzss.c
 OUTFILE := aki_lzss
+CFLAGS = -Wall -Werror
 
 .phony: all, clean
 
 all:
-	$(CC) $(INFILE) -Wall -s -o $(OUTFILE)
+	$(CC) $(CFLAGS) $(INFILE) -Wall -s -o $(OUTFILE)
 
 clean:
 	rm $(OUTFILE)
