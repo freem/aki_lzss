@@ -437,7 +437,11 @@ int main(int argc, char* argv[]){
 				printf("Unable to allocate memory for input file data.\n");
 				exit(5);
 			}
-			fread(inData, 1, inSize, inFile);
+			size_t result = fread(inData, 1, inSize, inFile);
+			if(result != inSize){
+				printf("Error reading input file data.\n");
+				exit(10);
+			}
 
 			Encode(inSize, inData, outFile);
 			free(inData);
@@ -467,7 +471,11 @@ int main(int argc, char* argv[]){
 				printf("Unable to allocate memory for input file data.\n");
 				exit(7);
 			}
-			fread(encodedData, 1, inSize, inFile);
+			size_t result = fread(encodedData, 1, inSize, inFile);
+			if(result != inSize){
+				printf("Error reading input file data.\n");
+				exit(11);
+			}
 
 			/* decode data to output file */
 			Decode(encodedData, outFile, outSize);
