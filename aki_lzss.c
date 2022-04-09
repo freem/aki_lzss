@@ -420,7 +420,7 @@ int main(int argc, char* argv[]){
 		printf("Warning: No output filename defined. Outputting to '%s'.\n", outFilename);
 	}
 
-	outFile = fopen(outFilename, "wb");
+	outFile = fopen(outFilename, "wb+");
 	if(outFile == NULL){
 		printf("Error: Unable to open output file '%s' for writing.\n", outFilename);
 		exit(4);
